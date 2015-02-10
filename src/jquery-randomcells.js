@@ -101,12 +101,10 @@
         return $it.timeout = setTimeout(function() {
           $wrapper.prepend($it);
           $it.addClass(settings.showClass);
+          $it.addClass(settings.visibleClass);
           return $it.timeout = setTimeout(function() {
-            $it.addClass(settings.visibleClass);
-            return $it.timeout = setTimeout(function() {
-              return $it.removeClass(settings.showClass);
-            }, settings.showTime);
-          }, 1);
+            return $it.removeClass(settings.showClass);
+          }, settings.showTime);
         }, delay);
       };
       swapItem = function($it, $el) {

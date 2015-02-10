@@ -94,12 +94,10 @@
 			$it.timeout = setTimeout ()->
 				$wrapper.prepend($it)
 				$it.addClass settings.showClass
+				$it.addClass settings.visibleClass
 				$it.timeout = setTimeout ()->
-					$it.addClass settings.visibleClass
-					$it.timeout = setTimeout ()->
-						$it.removeClass settings.showClass
-					, settings.showTime
-				, 1
+					$it.removeClass settings.showClass
+				, settings.showTime
 			, delay
 
 		# swap element #

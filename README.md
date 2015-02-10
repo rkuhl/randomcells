@@ -39,7 +39,7 @@ Options
 ```hideTime``` hide delay (animation) time (ms)  
 ```showTime``` show delay (animation) time (ms)  
 ```showClass``` class name added on show animation  
-```visibleClass``` class name added when element is added to the visible list 
+```visibleClass``` class name added when element is added to the visible list  
 ```dev``` if true some messages are logged into the console  
 
 JS:  
