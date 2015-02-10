@@ -9,17 +9,31 @@
 </head>
 <body>
 	<ul id="rc-data" style="display: none;">
-		<li><span>A</span></li>
-		<li><span>B</span></li>
-		<li><span>C</span></li>
-		<li><span>D</span></li>
-		<li><span>E</span></li>
-		<li><span>F</span></li>
+		<li><span style="background-color: #967d73">A</span></li>
+		<li><span style="background-color: #93877b">B</span></li>
+		<li><span style="background-color: #46423c">C</span></li>
+		<li><span style="background-color: #746659">D</span></li>
+		<li><span style="background-color: #766b5e">E</span></li>
+		<li><span style="background-color: #908b85">F</span></li>
 	</ul>
-	<ul id="random-cells"></ul>
+	<p>default (swap, ordered):</p>
+	<ul id="rc-default"></ul>
+	<p>swap random:</p>
+	<ul id="rc-swap-random"></ul>
+	<p>spread:</p>
+	<ul id="rc-spread"></ul>
 	<script>
 		$(document).ready(function() {
-			$("#random-cells").randomCells();
+			$("#rc-default").randomCells();
+			$("#rc-swap-random").randomCells({max: 5, delay: 400, mode : 'swap', swapMode : 'random'});
+			$("#rc-spread").randomCells({delay: 2000, mode : 'spread'});
+			
+
+			// on click
+			$('ul').on("click", function() {
+				$(this).randomCells.togglePause();
+				$(this).toggleClass('pause');
+			});
 		});
 	</script>
 </body>
