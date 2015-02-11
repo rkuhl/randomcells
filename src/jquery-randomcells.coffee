@@ -22,7 +22,7 @@
 		src = settings.src
 		elements = []
 		isPlaying = false
-		swapIndex = 1
+		swapIndex = 1		
 		# if $wrapper.data("selector")
 		# 	selector = $wrapper.data("selector")
 		# if $wrapper.data("src")
@@ -69,7 +69,12 @@
 			$list = $wrapper.find(selector)
 			if $list.length > 0
 				num = Math.floor(Math.random() * $list.length + 1)
-				return $wrapper.find(selector + ':nth-child(' + num + ')')
+				$randomIt = $wrapper.find(selector + ':nth-child(' + num + ')')
+				# avoid swaping same element twice
+				if ($randomIt.index() == swapIndex)
+					return getRandomItem()
+				swapIndex = $randomIt.index()
+				return $randomIt
 			return false
 		
 		# get next swap item by swapIndex #

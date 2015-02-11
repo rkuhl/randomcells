@@ -69,11 +69,16 @@
         return $item.clone(true).off();
       };
       getRandomItem = function() {
-        var $list, num;
+        var $list, $randomIt, num;
         $list = $wrapper.find(selector);
         if ($list.length > 0) {
           num = Math.floor(Math.random() * $list.length + 1);
-          return $wrapper.find(selector + ':nth-child(' + num + ')');
+          $randomIt = $wrapper.find(selector + ':nth-child(' + num + ')');
+          if ($randomIt.index() === swapIndex) {
+            return getRandomItem();
+          }
+          swapIndex = $randomIt.index();
+          return $randomIt;
         }
         return false;
       };
