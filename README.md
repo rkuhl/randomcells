@@ -7,6 +7,7 @@ by [Roman Kühl](http://www.kuhl.pl).
 
 Example
 ---
+Check out the [example](http://kuhl.pl/github/randomcells/).  
 HTML:    
 ```html
 <script src="jquery.js" type="text/javascript"></script>  
