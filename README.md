@@ -51,18 +51,22 @@ JS:
 ```javascript
 $(document).ready(function() {
 	$("#rc-list").randomCells({
-		'max'			: 3,
-		'delay'			: 1000,
-		'selector'		: 'li',
+		'max'			: 3, 		
+		'delay'			: 1000,		
+		'selector'		: 'li',		
+		'innerSelector'	: '.inner'	
 		'src'			: '#rc-data',
-		'mode'			: 'swap',
+		'mode'			: 'swap',	
 		'swapMode'		: 'ordered',
-		'hideTime'		: 200,
+		'cloneClass'	: 'rc-i-clone',
+		'clonedOrygin'	: 'rc-i-orygin'
+		'overlap'		: false,	
+		'hideTime'		: 200,		
 		'hideClass'		: 'rc-hide',
-		'showTime'		: 200,
+		'showTime'		: 200,		
 		'showClass'		: 'rc-show',
 		'visibleClass'	: 'rc-active',
-		'dev'			: false
+		'dev'			: false		
 	});
 });
 
