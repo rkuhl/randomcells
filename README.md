@@ -34,8 +34,8 @@ Options
 ```max``` how many elements are visible at once  
 ```delay``` time delay (ms)  
 ```selector``` element's selector  
-```innerSelector``` element's selector  
-```src``` source element's inner selector (only with overlap)  
+```innerSelector``` element's inner selector (only with overlap)  
+```src``` source elements selector  
 ```mode``` 'spread' or 'swap' mode  
 ```swapMode``` 'random' or 'ordered' (for swap mode only)  
 ```cloneClass``` class added to item's inner clone (only with overlap)  
