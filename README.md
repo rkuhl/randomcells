@@ -7,7 +7,8 @@ by [Roman Kühl](http://www.kuhl.pl).
 
 Example
 ---
-Check out the [example](http://kuhl.pl/github/randomcells/).  
+Check out the basic [example](http://kuhl.pl/github/randomcells/)  
+and the [carousel example](http://kuhl.pl/github/randomcells/carousel.html)  
 HTML:    
 ```html
 <script src="jquery.js" type="text/javascript"></script>  
@@ -31,11 +32,14 @@ $(document).ready(function() {
 Options
 ---
 ```max``` how many elements are visible at once  
+```delay``` time delay (ms)  
 ```selector``` elements selector
 ```src``` source elements selector
-```delay``` time delay (ms)  
 ```mode``` 'spread' or 'swap' mode  
 ```swapMode``` 'random' or 'ordered' (for swap mode only)  
+```cloneClass``` class added to item's inner clone (only with overlap)  
+```clonedOrygin``` class added to item's inner orygin (only with overlap)  
+```overlap``` new item overlaps old one (carousel)  
 ```hideClass``` class name added on hide animation  
 ```hideTime``` hide delay (animation) time (ms)  
 ```showTime``` show delay (animation) time (ms)  

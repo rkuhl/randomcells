@@ -4,9 +4,13 @@
 				'max'			: 3, 			# number of displayed elements
 				'delay'			: 1000,			# delay	
 				'selector'		: 'li',			# list item selector
+				'innerSelector'	: '.inner'		# inner selector
 				'src'			: '#rc-data',	# data selector
 				'mode'			: 'swap',		# 'spread' (all) / 'swap' (single)
 				'swapMode'		: 'ordered',	# 'random' / 'ordered'
+				'cloneClass'	: 'rc-i-clone',	# class added to item's inner clone (swapMode)
+				'clonedOrygin'	: 'rc-i-orygin',# class added to item's inner orygin
+				'overlap'		: false,		# new item overlaps old one (carousel)
 				'hideTime'		: 200,			# item hide animation time
 				'hideClass'		: 'rc-hide',	# class added on hide animation
 				'showTime'		: 200,			# item show animation time
@@ -107,19 +111,35 @@
 
 		# swap element #
 		swapItem = ($it, $el)->
-			$it.addClass settings.hideClass	
-			$it.removeClass settings.visibleClass
+			# clone element?
+			if settings.overlap
+				$itInner = $it.find(settings.innerSelector)
+				$elInner = $el.find(settings.innerSelector)
+				$cloneInner = $itInner.clone()
+				$cloneInner.html($elInner.html())
+				# add clone class
+				$itInner.addClass settings.clonedOrygin
+				$cloneInner.addClass settings.cloneClass
+				$it.append( $cloneInner )
+			
 			$it.timeout = setTimeout ()->
-				$it.removeClass settings.hideClass
-				$it.data("rc-id", $el.data("rc-id"))
-				$it.html($el.html())
-				$it.addClass settings.showClass
-				$it.addClass settings.visibleClass
+				$it.addClass settings.hideClass	
+				$it.removeClass settings.visibleClass
 				$it.timeout = setTimeout ()->
-					$it.removeClass settings.showClass
-				, settings.showTime
+					$it.removeClass settings.hideClass
+					$it.data("rc-id", $el.data("rc-id"))
+					$it.html($el.html())
+					$it.addClass settings.showClass
+					$it.addClass settings.visibleClass
+					$it.timeout = setTimeout ()->
+						$it.removeClass settings.showClass
+						#  clone element remove
+						if settings.overlap
+							$cloneInner.remove()
+					, settings.showTime
 
-			, settings.hideTime
+				, settings.hideTime
+			, 50
 
 
 		# get current set #
@@ -146,7 +166,7 @@
 				showItem($el, showDelay)
 		# swap #
 		swap = ()->
-			trace ":swap:"
+			# trace ":swap:"
 			set = getCurrentSet()
 			if settings.swapMode == 'random'
 				swapItem(getRandomItem(), getRandomElement(set))

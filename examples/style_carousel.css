@@ -1,0 +1,67 @@
+body {
+	padding: 40px;
+	margin: 0;
+}
+
+ul#rc-carousel li {	
+	display: inline-block;
+	list-style: none;
+	margin: 10px;	
+}
+ul#rc-carousel li span {
+	display: inline-block;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 22px;
+	text-align: center;
+	-webkit-font-smoothing: subpixel-antialiased;
+	width: 20px;
+	padding: 20px;
+}
+
+
+/* carousel styles */
+ul#rc-carousel li {
+	border: 2px solid transparent;
+	display: inline-block;
+	width: 60px;
+	height: 65px;
+	position: relative;
+	overflow: hidden;
+}
+
+ul#rc-carousel li span {
+	position: absolute;
+}
+
+ul#rc-carousel li span {
+	right: 100%;
+}
+ul#rc-carousel li.rc-active span {
+	right: 0;
+}
+ul#rc-carousel li span.rc-i-clone {
+	right: auto;
+	left: 0;
+}
+ul#rc-carousel li.rc-active span.rc-i-clone {
+	left: 100%;
+}
+
+
+
+
+/* transition ease-in-out-expo .5s */
+ul#rc-carousel li span
+{
+	-webkit-transition: all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	-moz-transition: all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	-o-transition: all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	transition: all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	-webkit-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	-moz-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	-o-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+}
